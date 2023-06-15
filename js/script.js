@@ -6,25 +6,23 @@ const validEmails = ["prova@com", "pierpaolo@alice.it", "fierobecco@gmail.com", 
 
 myForm.addEventListener ("submit",
     function(event){
+        event.preventDefault();
         let userEmail = document.getElementById("emailInput");
         console.log(userEmail.value);
-
+        let element;
         for (let index = 0; index < validEmails.length; index++) {
-            const element = validEmails[index];
-            
-            if (userEmail.value == element){
-                myh1.append("Email Valida");
-            }
-            else{
-                myh1.append("Email Valida");
+            element = validEmails[index];
+        }
+        if (userEmail.value === element){
+            myh1.append("Email Valida");
+            userEmail.value = "";
+        }
+        else{
+            myh1.append("Email Invalida");
+            userEmail.value = "";
 
-            }
-
-            
         }
 
-        event.preventDefault();
-        console.log("Submitted");
 
     }
 
